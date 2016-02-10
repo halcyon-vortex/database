@@ -1,7 +1,9 @@
 # database
 
 schema: halcyon
-
+```Shell
+\d+ halcyon
+```
 #### Tables
  
 halcyon."Test_Hourly_Watches"
