@@ -1,4 +1,5 @@
 # database
+<<<<<<< 682da9f7a2ec82ed02470fe36d7dc628d96ddb14
 
 schema: halcyon
 ```Shell
@@ -44,4 +45,29 @@ where num_stars > 0
   AND date >= current_date - 47
   AND date <=  current_date - 40
 group by repo_id, repo_name, language, num_stars order by num_stars desc
+```
+
+#### Docker Container
+
+
+SQL database container
+
+Build Image: 
+
+```bash
+docker build -t custom_psql .
+```
+
+Run Container: 
+```bash
+docker run -d --name custom_psql_running -p 5432:5432 custom_psql
+```
+
+Exec into container: docker 
+```bash
+exec -it custom_psql_running psql -U postgres
+```
+
+```bash
+docker run -it --link custom_psql:postgres --rm postgres sh -c 'exec psql -h "$POSTGRES_PORT_5432_TCP_ADDR" -p "$POSTGRES_PORT_5432_TCP_PORT" -U postgres'
 ```
