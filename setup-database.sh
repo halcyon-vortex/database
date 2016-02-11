@@ -5,7 +5,15 @@ DB_DUMP_LOCATION="/tmp/psql_data/december_v3_2015_02_08"
 
 echo "*** CREATING DATABASE ***"
 
+
+
+
+
 # create default database
+gosu postgres postgres --single <<EOSQL
+   CREATE ROLE postgres WITH LOGIN ENCRYPTED PASSWORD 'password' CREATEDB;
+EOSQL
+
 gosu postgres postgres --single <<EOSQL
   CREATE DATABASE "$DATABASE_NAME";
   GRANT ALL PRIVILEGES ON DATABASE "$DATABASE_NAME" TO postgres;
