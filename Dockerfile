@@ -1,7 +1,8 @@
 FROM postgres:9.4.3
-ENV DB_NAME database
-ENV DB_USER admin
+ENV DB_NAME test-db
+ENV DB_USER postgres
 ENV DB_PASS password
+ENV PG_TRUST_LOCALNET true
 
 RUN mkdir -p /tmp/psql_data/
 COPY tmp/december_v3_2015_02_08 /tmp/psql_data/
