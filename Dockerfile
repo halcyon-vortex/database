@@ -5,7 +5,7 @@ ENV DB_PASS password
 ENV PG_TRUST_LOCALNET true
 
 RUN mkdir -p /tmp/psql_data/
-COPY tmp/december_v3_2015_02_08 /tmp/psql_data/
+COPY tmp/ /tmp/psql_data/
 
 #VOLUME ["/tmp"]
 
